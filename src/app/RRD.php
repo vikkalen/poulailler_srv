@@ -120,6 +120,7 @@ class RRD
             "--width", $width,
             "--height", $height,
             "--full-size-mode",
+            "--slope-mode",
             //"--only-graph",
             "--start", $start,
             "--end", "now",
