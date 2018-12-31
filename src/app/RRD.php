@@ -112,6 +112,8 @@ class RRD
                 break;
         }
 
+	$res = $datasource == 'voltage' ? '3.2' : '3.1';
+	
         $def = "DEF:val=" . $this->filename . ":" . $datasource . ":AVERAGE";
         $line = "LINE1:val#FFFFFF";
         $options =  array(
@@ -138,10 +140,10 @@ class RRD
             "VDEF:avg=val,AVERAGE",
             "VDEF:last=val,LAST",
             $line,
-            "GPRINT:min:Min\: %3.1lf",
-            "GPRINT:max:Max\: %3.1lf",
-            "GPRINT:avg:Avg\: %3.1lf",
-            "GPRINT:last:Cur\: %3.1lf",
+            "GPRINT:min:Min\: %${res}lf",
+            "GPRINT:max:Max\: %${res}lf",
+            "GPRINT:avg:Avg\: %${res}lf",
+            "GPRINT:last:Cur\: %${res}lf",
         );
 
         if($datasource == 'luminosite')
