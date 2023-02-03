@@ -1,6 +1,6 @@
 <?php
-namespace App;
-use App\TxPayload;
+namespace App\Core;
+use App\Core\TxPayload;
 
 class Tx
 {

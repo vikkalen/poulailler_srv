@@ -1,5 +1,7 @@
 <?php
-namespace App;
+namespace App\Core;
+
+use Slim\Psr7\Response;
 
 class TokenMiddleware
 {
@@ -17,16 +19,13 @@ class TokenMiddleware
      *
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function __invoke($request, $response, $next)
+    public function __invoke($request, $handler)
     {
         $token = $request->getHeaderLine('X-Thermo-Token');
-        if ($token == $this->token) {
-            return $next(
-                $request,
-                $response
-            );
+	if ($token == $this->token) {
+	    return $handler->handle($request);
         }
-        return $response
+        return (new Response())
             ->withStatus(401);
     }
 }

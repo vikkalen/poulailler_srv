@@ -1,5 +1,9 @@
+.idea/
+.vscode/
+/coverage/
 /vendor/
 /logs/*
 !/logs/README.md
 /storage/*
 !/storage/.gitkeep
+phpunit.result.cache

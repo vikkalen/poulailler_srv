@@ -1,5 +1,5 @@
 <?php
-namespace App;
+namespace App\Core;
 
 use \Exception;
 use \SQLite3;
