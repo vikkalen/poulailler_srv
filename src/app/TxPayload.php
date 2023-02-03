@@ -9,6 +9,7 @@ class TxPayload
     const FLAG_CONFIGURE = "3";
     const FLAG_OUVRIR = "4";
     const FLAG_FERMER = "5";
+    const FLAG_LUMIERE = "6";
 
     public $sonde;
     public $flag;
@@ -23,6 +24,7 @@ class TxPayload
     public $tours;
     public $retry;
     public $sleep;
+    public $fermetureDelay;
 
     public function __construct($sonde, $flag)
     {

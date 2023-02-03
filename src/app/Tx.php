@@ -26,6 +26,7 @@ class Tx
                 $txPayload->tours = $data[4];
                 $txPayload->retry = $data[5];
                 $txPayload->sleep = $data[6];
+                $txPayload->fermetureDelay = $data[7];
                 break;
         }
 
@@ -44,6 +45,7 @@ class Tx
             case TxPayload::FLAG_REQUEST_CONF:
             case TxPayload::FLAG_OUVRIR:
             case TxPayload::FLAG_FERMER:
+            case TxPayload::FLAG_LUMIERE:
                 break;
             case TxPayload::FLAG_CONFIGURE:
                 $data[2] = $txPayload->luxFermeture;
@@ -51,6 +53,7 @@ class Tx
                 $data[4] = $txPayload->tours;
                 $data[5] = $txPayload->retry;
                 $data[6] = $txPayload->sleep;
+                $data[7] = $txPayload->fermetureDelay;
                 break;
         }
 
@@ -71,6 +74,7 @@ class Tx
                     $txPayload->tours = isset($params['tours']) ? $params['tours'] : null;
                     $txPayload->retry = isset($params['retry']) ? $params['retry'] : null;
                     $txPayload->sleep = isset($params['sleep']) ? $params['sleep'] : null;
+                    $txPayload->fermetureDelay = isset($params['fermeture_delay']) ? $params['fermeture_delay'] : null;
                 }
                 else
                 {
@@ -81,7 +85,9 @@ class Tx
                 $direction = isset($params['direction']) ? $params['direction'] : null;
                 if($direction == 'ouvrir') $txPayload = new TxPayload($sonde, TxPayload::FLAG_OUVRIR);
                 if($direction == 'fermer') $txPayload = new TxPayload($sonde, TxPayload::FLAG_FERMER);
-                break;
+		break;
+           case 'lumiere':
+                $txPayload = new TxPayload($sonde, TxPayload::FLAG_LUMIERE);
         }
 
         return $txPayload;

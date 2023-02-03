@@ -61,6 +61,7 @@ $app->post('/rx/', function (Request $request, Response $response, array $args) 
             'tours' => $payload->tours,
             'retry' => $payload->retry,
             'sleep' => $payload->sleep,
+            'fermeture_delay' => $payload->fermetureDelay,
         );
         $this->json->write($data);
         $this->db->deleteCommand('config');
@@ -125,6 +126,13 @@ $app->post('/fermer/', function (Request $request, Response $response, array $ar
     return $response->withJson(['data' => null]);
 })->add($app->getContainer()->token_guard);
 
+$app->post('/lumiere/', function (Request $request, Response $response, array $args) {
+
+    $this->db->pushCommand('lumiere');
+
+    return $response->withJson(['data' => null]);
+})->add($app->getContainer()->token_guard);
+
 $app->post('/configurer/', function (Request $request, Response $response, array $args) {
 
     $data = $request->getParsedBody();
@@ -135,6 +143,12 @@ $app->post('/configurer/', function (Request $request, Response $response, array
     }
 
     $config = $data;
+
+    $oldConfig = $this->json->read();
+    foreach($oldConfig as $key => $value)
+    {
+	if(!isset($config[$key])) $config[$key] = $value;
+    }
 
     $this->db->pushCommand('config', $config);
 
