@@ -8,6 +8,7 @@ use App\Core\RRD;
 use App\Core\TokenMiddleware;
 use App\Core\DB;
 use App\Core\JSON;
+use App\Core\MQTT;
 use DI\ContainerBuilder;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
@@ -65,6 +66,7 @@ return function (ContainerBuilder $containerBuilder) {
             $json = new JSON($settings['path']);
             return $json;
 	},
+
     ]);
 };
 
