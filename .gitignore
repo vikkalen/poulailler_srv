@@ -7,3 +7,4 @@
 /storage/*
 !/storage/.gitkeep
 phpunit.result.cache
+/supervisord.pid

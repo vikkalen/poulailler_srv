@@ -19,9 +19,13 @@ RUN apk add --update --no-cache --virtual .build-deps ${PHPIZE_DEPS} rrdtool-dev
     && apk del .build-deps \
     && apk add --update --no-cache ttf-dejavu rrdtool \
     && apk add --update --no-cache sqlite \
+    && apk add --update --no-cache supervisor \
     && docker-php-ext-enable rrd \
     && docker-php-ext-configure opcache --enable-opcache \
-    && docker-php-ext-install opcache
+    && docker-php-ext-install opcache \
+    && docker-php-ext-configure pcntl --enable-pcntl \
+    && docker-php-ext-install pcntl
+
 
 ENV PHP_PM_MODE="dynamic" \
     PHP_PM_MAX_CHILDREN="5" \
@@ -32,6 +36,9 @@ ENV PHP_PM_MODE="dynamic" \
     PHP_OPCACHE_MAX_ACCELERATED_FILES="10000" \
     PHP_OPCACHE_MEMORY_CONSUMPTION="48" \
     PHP_OPCACHE_MAX_WASTED_PERCENTAGE="10"
+
+RUN mkdir -p /var/run/supervisor && chown www-data:www-data /var/run/supervisor
+COPY supervisord.conf /etc/supervisord.conf
 
 COPY php.conf /usr/local/etc/php-fpm.d/www.conf
 COPY php-opcache.ini $PHP_INI_DIR/conf.d/opcache.ini
