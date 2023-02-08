@@ -63,7 +63,6 @@ class PublishDiscoveryAction extends BasePublishAction
             'unique_id' => 'poulailler_porte',
 	    'value_template' => '{{ value_json.porte }}',
             "command_topic" => $this->settings()['command_topic'],
-            "command_template" => '{ "porte": "{{ value }}" }',
 	]);
         
  	$luxOuvertureData = array_merge($discoveryData, [

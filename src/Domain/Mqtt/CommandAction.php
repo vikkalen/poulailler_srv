@@ -15,14 +15,16 @@ class CommandAction
 
     public function execute($message)
     {
-        $payload = json_decode($message, true);
-        if(!$payload) return;
-
-        if($payload['porte'] ?? null == 'LOCK') {
+        if($message == 'LOCK') {
             $this->container->get('db')->pushCommand('porte', ['direction' => 'fermer']);
-        } else if ($payload['porte'] ?? null == 'UNLOCK') {
+	    return;
+	} else if ($message == 'UNLOCK') {
             $this->container->get('db')->pushCommand('porte', ['direction' => 'ouvrir']);
-        }
+	    return;
+	}
+
+       $payload = json_decode($message, true);
+        if(!$payload) return;
 
         $config = $payload['config'] ?? [];
         if($config) {
