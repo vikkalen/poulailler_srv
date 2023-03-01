@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0d1ca30b76d5c265f886846a298c5bab",
+    "content-hash": "44c3f60006fbaea5774df16d463066e6",
     "packages": [
         {
             "name": "fig/http-message-util",
@@ -512,16 +512,16 @@
         },
         {
             "name": "php-mqtt/client",
-            "version": "v1.7.1",
+            "version": "v1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-mqtt/client.git",
-                "reference": "dc40a6d282e057dfe6bd9440b5f65c2e7c9939be"
+                "reference": "99967b4d4f10388c34e82b1881eb8f833ced322c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-mqtt/client/zipball/dc40a6d282e057dfe6bd9440b5f65c2e7c9939be",
-                "reference": "dc40a6d282e057dfe6bd9440b5f65c2e7c9939be",
+                "url": "https://api.github.com/repos/php-mqtt/client/zipball/99967b4d4f10388c34e82b1881eb8f833ced322c",
+                "reference": "99967b4d4f10388c34e82b1881eb8f833ced322c",
                 "shasum": ""
             },
             "require": {
@@ -563,9 +563,9 @@
             ],
             "support": {
                 "issues": "https://github.com/php-mqtt/client/issues",
-                "source": "https://github.com/php-mqtt/client/tree/v1.7.1"
+                "source": "https://github.com/php-mqtt/client/tree/v1.8.0"
             },
-            "time": "2023-01-13T05:40:57+00:00"
+            "time": "2023-02-10T19:37:29+00:00"
         },
         {
             "name": "psr/container",
@@ -839,30 +839,30 @@
         },
         {
             "name": "psr/log",
-            "version": "3.0.0",
+            "version": "1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "fe5ea303b0887d5caefd3d431c3e61ad47037001"
+                "reference": "d49695b909c3b7628b6289db5479a1c204601f11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/fe5ea303b0887d5caefd3d431c3e61ad47037001",
-                "reference": "fe5ea303b0887d5caefd3d431c3e61ad47037001",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/d49695b909c3b7628b6289db5479a1c204601f11",
+                "reference": "d49695b909c3b7628b6289db5479a1c204601f11",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.0.0"
+                "php": ">=5.3.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Psr\\Log\\": "src"
+                    "Psr\\Log\\": "Psr/Log/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -883,9 +883,9 @@
                 "psr-3"
             ],
             "support": {
-                "source": "https://github.com/php-fig/log/tree/3.0.0"
+                "source": "https://github.com/php-fig/log/tree/1.1.4"
             },
-            "time": "2021-07-14T16:46:02+00:00"
+            "time": "2021-05-03T11:20:27+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
